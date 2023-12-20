@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 리터럴</title>
+</head>
+
+<body>
+    <script>
+        const twice = {
+            name: '나연',
+            age: 25,
+            sayHi: function () {
+                console.log('안녕하세요');
+            }
+        };
+
+        console.log(twice.name);
+        console.log(twice['name']);
+        console.log(typeof twice);
+
+        const nayeon = {
+            ...twice,
+            dd: '민영',
+            asd: 38,
+            favorite: ['나연', '사나'],
+        }
+
+        console.log(...nayeon.favorite);
+    </script>
+</body>
+
+</html>

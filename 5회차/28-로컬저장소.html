@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로컬 저장소</title>
+</head>
+
+<body>
+
+    <p id="item">김민영</p>
+    <button id="set">SET</button>
+    <button id="get">GET</button>
+    <button id="remove">REMOVE</button>
+    <button id="clear">CLEAR</button>
+
+    <script>
+        const item = document.getElementById('item');
+        document.getElementById('set').addEventListener('click', function () {
+            localStorage.setItem('개발자', item.textContent);
+        })
+        document.getElementById('get').addEventListener('click', function () {
+            alert(localStorage.getItem('개발자'));
+        })
+        document.getElementById('remove').addEventListener('click', function () {
+            localStorage.removeItem('개발자');
+        })
+        document.getElementById('clear').addEventListener('click', function () {
+            localStorage.clear();
+        })
+
+        localStorage.setItem('커피', JSON.stringify({
+            name: '아메리카노',
+            taste: '쓰다',
+        }));
+
+    </script>
+</body>
+
+</html>
