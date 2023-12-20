@@ -11,7 +11,7 @@ function saveTodos() {
 // // 로컬 저장소에서 가져오기
 function loadTodos() {
     const myTodos = localStorage.getItem('myTodos');
-    if (myTodos === null) {
+    if (myTodos !== null) {
         todoArr = JSON.parse(myTodos);
         displayTodos();
     }
