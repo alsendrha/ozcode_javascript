@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background_color</title>
+</head>
+
+<body>
+    <button id="while">while</button>
+    <button id="black">black</button>
+    <script>
+        const blackBtn = document.getElementById('black');
+        const whileBtn = document.getElementById('while');
+
+        blackBtn.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'black';
+        });
+
+        whileBtn.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'white';
+        });
+
+    </script>
+</body>
+
+</html>

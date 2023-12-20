@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&family=Nanum+Pen+Script&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            text-align: center;
+            font-family: 'Nanum Gothic Coding', monospace;
+            font-family: 'Nanum Pen Script', cursive;
+        }
+
+        html {
+            background-color: rgb(131, 232, 138);
+            font-size: 16px;
+        }
+
+        body {
+            width: 640px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 48px;
+        }
+
+        .first_main {
+            text-align: center;
+        }
+
+        .first_main .label {
+            text-align: start;
+        }
+
+        .label {
+            display: inline-block;
+        }
+
+        label {
+            font-size: 1.5rem;
+        }
+
+        .select_email {
+            height: 22px;
+        }
+
+        .button {
+            width: 20%;
+            height: 2.75rem;
+            padding: 0;
+            margin-top: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 700;
+
+        }
+    </style>
+    <title>회원가입</title>
+</head>
+
+<body>
+    <header>
+        <h1>회원가입</h1>
+        <p>모든 항목을 빠짐없이 적어주세요.</p>
+    </header>
+    <hr>
+    <main>
+        <form id="form">
+            <fieldset>
+                <div class="first_main">
+                    <legend>정보입력</legend>
+                    <label class="label" for="userId">아이디</label>
+                    <br>
+                    <input type="text" name="userId" id="userId" placeholder="아이디를 입력하세요">
+                    <br>
+                    <label class="label" for="password">비밀번호</label>
+                    <br>
+                    <input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요">
+                    <br>
+                    <label class="label" for="password1">비밀번호 확인</label>
+                    <br>
+                    <input type="password" name="password1" id="password1" placeholder="비밀번호를 입력하세요">
+                    <br>
+                    <label class="label" for="age">나이</label>
+                    <br>
+                    <input type="age" name="age" id="age" placeholder="나이를 입력하세요">
+                    <br>
+                    <label class="label" for="email">이메일</label>
+                    <br>
+                    <input type="text" name="email" id="email" placeholder="이메일을 입력하세요">
+                    <select id="select_email" class="select_email">
+                        <option value="구글">gmail.com</option>
+                        <option value="네이버">naver.com</option>
+                        <option value="다음">daum.net</option>
+                    </select>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>취미 선택</legend>
+                <label for="computer">
+                    <input type="checkbox" id="computer" value="computer" name="transportation">컴퓨터
+                </label>
+                <label for="exercise">
+                    <input type="checkbox" id="exercise" value="exercise" name="transportation">운동
+                </label>
+                <label for="reading">
+                    <input type="checkbox" id="reading" value="reading" name="transportation">독서
+                </label>
+                <label for="movie">
+                    <input type="checkbox" id="movie" value="movie" name="transportation">영화
+                </label>
+            </fieldset>
+            <input class="button" type="submit" value="가입하기">
+            <input class="button" value="돌아가기">
+        </form>
+    </main>
+    <script>
+        const form = document.getElementById('form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            console.log(event.target.userId.value);
+            console.log(event.target.password.value);
+            console.log(event.target.password1.value);
+            console.log(event.target.age.value);
+            console.log(`${event.target.email.value}@${event.target.select_email.value}`);
+            const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+            checkedCheckboxes.forEach((checkbox) => {
+                console.log(checkbox.value);
+            });
+        });
+    </script>
+</body>
+
+</html>

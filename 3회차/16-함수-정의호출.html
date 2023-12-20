@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 정의하고 호출하기</title>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script>
+        const container = document.getElementById('container');
+        function createParagraph() {
+            createParagraph();
+            const p = document.createElement('p');
+            p.textContent = 'hello world';
+            container.appendChild(p);
+        }
+
+        function sayYes() {
+            console.log(1);
+            console.log(2);
+            alert('yes!');
+        }
+
+        const sayNo = function () {
+            alert('no!');
+            console.log(3);
+        }
+
+    </script>
+</body>
+
+</html>

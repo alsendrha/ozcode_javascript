@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel</title>
+</head>
+
+<body>
+    <div>
+        <img src="">
+        <img src="">
+        <img src="">
+    </div>
+    <button id="background">배경</button>
+    <button id="image1">image1</button>
+    <button id="image2">image2</button>
+    <button id="image3">image3</button>
+    <button id="next">다음</button>
+    <script>
+        const backgroundBtn = document.getElementById('background');
+        const image1Btn = document.getElementById('image1');
+        const image2Btn = document.getElementById('image2');
+        const image3Btn = document.getElementById('image3');
+        const nextBtn = document.getElementById('next');
+
+        backgroundBtn.addEventListener('click', () => {
+            if (document.body.style.backgroundColor == 'black')
+                document.body.style.backgroundColor = 'white';
+            else
+                document.body.style.backgroundColor = 'black';
+        });
+
+    </script>
+</body>
+
+</html>
