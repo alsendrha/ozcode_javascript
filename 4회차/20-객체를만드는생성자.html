@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체를 만드는 생성자</title>
+</head>
+
+<body>
+    <script>
+        /*
+        function BestGame() {
+            this.name = '슈퍼마리오';
+            this.member = '마리오, 마리지, 공주';
+            this.title = function () {
+                console.log('슈퍼마리오3 존잼');
+            }
+        }
+
+        const game = new BestGame();
+        console.log(game.name);
+        console.log(game.member);
+        game.title();
+        */
+
+        function Singer(name, member) {
+            this.name = name;
+            this.member = member;
+        }
+
+        const twice = new Singer('트와이스', '나연, 정연, 모모, 사나, 지효, 미나, 다현, 채영, 쯔위');
+
+        console.log(twice.name);
+        console.log(twice.member);
+    </script>
+</body>
+
+</html>

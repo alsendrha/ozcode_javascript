@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>빌트인 객체 math</title>
+</head>
+
+<body>
+    <button id="draw">추첨</button>
+    <p id="number"></p>
+
+    <script>
+        const drawBtn = document.getElementById('draw');
+        const p = document.getElementById('number');
+
+        // 0 ~ 1 사이의 랜덤한 숫자를 리턴
+        let rn = Math.random();
+
+        // 소수점 이하를 버림
+        Math.floor(rn * 10);
+        const MAX_NUM = 10;
+        const MIN_NUM = 1;
+        console.log(Math.floor(rn * MAX_NUM) + MIN_NUM);
+        drawBtn.addEventListener('click', function () {
+            p.textContent = Math.floor(Math.random() * MAX_NUM) + MIN_NUM;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+
+<body>
+    <script>
+        const twice = ['나연', '사나', '쯔위', '지효', '모모', '미나', '정연', '다현', '채영'];
+        console.log(twice);
+        console.log(twice[0]);
+        console.log(twice[3]);
+
+        twice[0] = '슈퍼나연';
+        console.log(twice[0]);
+        let newMember = [];
+        for (let i = 0; i < twice.length; i++) {
+            newMember.push(twice[i]);
+        }
+        console.log(newMember);
+        console.log(newMember.indexOf('쯔위'));
+
+        newMember.pop();
+        console.log(newMember);
+
+        newMember.splice(5, 8);
+        console.log(newMember);
+
+        newMember.splice(0, 0, '쯔위', '사나', '나연');
+        console.log(newMember);
+        // 앞으로 채워지넹??
+
+        twice.forEach(function (item) {
+            console.log('트와이스 멤버 : ' + item);
+        });
+
+
+
+    </script>
+</body>
+
+</html>
