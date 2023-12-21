@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미스테리 게임</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #151515;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 756px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .game_title {
+            color: #fff;
+        }
+
+        .sub_game_title {
+            margin-top: 40px;
+            color: #fff;
+        }
+
+        .p {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container" class="container">
+        <h1 class="game_title">Mystery Number 맞추기</h1>
+        <div class="main_content">
+            <h3 class="sub_game_title">1부터 100사이의 숫자를 입력하세요!</h3>
+            <div>
+                <input type="text" id="input_number" placeholder="숫자를 입력하세요!">
+                <button id="submit">뚜둥</button>
+                <div id="hint"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inputText = document.getElementById('input_number');
+        const submitBtn = document.getElementById('submit');
+        const hint = document.getElementById('hint');
+        let rn = Math.random();
+        let mysteryNumber;
+        Math.floor(rn * 100);
+        const MAX_NUM = 100;
+        const MIN_NUM = 1;
+        let input = inputText.value.floor;
+
+        inputText.addEventListener('input', function () {
+            let inputValue = this.value.trim();
+            inputValue = inputValue === '' ? '' : Math.floor(parseFloat(inputValue));
+            if (inputValue > 100) {
+                inputValue = 100;
+            }
+
+            this.value = inputValue;
+        });
+
+
+        submitBtn.addEventListener('click', function () {
+            const inputValue = Math.floor(parseFloat(inputText.value));
+            if (isNaN(inputValue)) {
+                return;
+            }
+            if (mysteryNumber == null) {
+                mysteryNumber = Math.floor(Math.random() * MAX_NUM) + MIN_NUM;
+            }
+            const p = document.createElement('p');
+            p.style.color = '#fff';
+
+            if (inputValue > mysteryNumber) {
+                hint.innerHTML = '';
+                p.textContent = '힌트 : 숫자가 커요! 줄여볼까요?';
+                hint.append(p);
+            } else if (inputValue < mysteryNumber) {
+                hint.innerHTML = '';
+                p.textContent = '힌트 : 숫자가 너무 작아요! 조금 더 높여보세요!';
+                hint.append(p);
+            } else {
+                p.textContent = '정답입니다!';
+                alert('정답입니다!');
+                const button = document.createElement('button');
+                button.textContent = '다시 시작하기';
+                hint.append(button);
+                button.addEventListener('click', function () {
+                    location.reload();
+                });
+            }
+
+            console.log(mysteryNumber);
+        });
+    </script>
+</body>
+
+</html>
