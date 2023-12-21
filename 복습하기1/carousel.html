@@ -6,34 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>carousel</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .back {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 320px;
+            margin: auto;
+            overflow: hidden;
+        }
+
         .background {
             background-color: black;
+        }
+
+        .carousel-wrapper {
+            display: flex;
+            width: 1500px;
+            /* 이미지 총 너비 */
+            transition: transform 0.5s ease;
+            /* 부드러운 전환 */
+        }
+
+        img {
+            width: 500px;
+            height: 300px;
+        }
+
+        .buttons {
+            margin-top: 10px;
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div>
-        <img src="">
-        <img src="">
-        <img src="">
+    <div class="back" id="back">
+        <div class="carousel-wrapper" id="carousel-wrapper">
+            <img src="images/8b48c67f8cdf6.jpeg">
+            <img src="images/pngtree-blue-clouds-in-the-sky-wallpaper-stock-videos-e-broll-footage-image_2541971.jpg">
+            <img src="images/pngtree-landscape-wallpaper-fb-wallpapers-picture-image_3017516.jpg">
+        </div>
     </div>
-    <button id="background">배경</button>
-    <button id="image1">image1</button>
-    <button id="image2">image2</button>
-    <button id="image3">image3</button>
-    <button id="next">다음</button>
+    <div class="buttons">
+        <button id="background">배경</button>
+        <button class="image1" id="image1">이미지 1</button>
+        <button class="image2" id="image2">이미지 2</button>
+        <button class="image3" id="image3">이미지 3</button>
+        <button class="next" id="next">다음</button>
+    </div>
     <script>
         const backgroundBtn = document.querySelector('#background');
-        const image1Btn = document.getElementById('image1');
-        const image2Btn = document.getElementById('image2');
-        const image3Btn = document.getElementById('image3');
-        const nextBtn = document.getElementById('next');
+        const image1Btn = document.querySelector('.image1');
+        const image2Btn = document.querySelector('.image2');
+        const image3Btn = document.querySelector('.image3');
+        const carousel = document.querySelector('.carousel-wrapper');
+        const images = document.querySelectorAll('.carousel-wrapper img');
+        const back = document.getElementById('back');
+        let index = 0;
 
-        backgroundBtn.addEventListener('click', () => {
-            document.body.classList.toggle('background');
+        backgroundBtn.addEventListener('click', function () {
+            back.classList.toggle('background');
         });
 
+        image1Btn.addEventListener('click', function () {
+            index = 0;
+            changeSlide();
+        });
+
+        image2Btn.addEventListener('click', function () {
+            index = 1;
+            changeSlide();
+        });
+
+        image3Btn.addEventListener('click', function () {
+            index = 2;
+            changeSlide();
+        });
+
+        next.addEventListener('click', function () {
+            index = (index + 1) % images.length;
+            changeSlide();
+        });
+
+        function changeSlide() {
+            const offset = -index * 500;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
     </script>
 </body>
 
