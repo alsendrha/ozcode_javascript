@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>별만들기</title>
+    <style>
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">1번별</div>
+    <div id="container2">2번별</div>
+    <div id="container3">3번별</div>
+    <script>
+        const container = document.getElementById('container');
+        const container2 = document.getElementById('container2');
+        const container3 = document.getElementById('container3');
+        for (let i = 1; i <= 5; i++) {
+            const p = document.createElement('p');
+            p.textContent = '*'.repeat(i);
+            container.append(p);
+        }
+
+        for (let i = 1; i <= 9; i++) {
+            const p = document.createElement('p');
+            if (i <= Math.ceil(9 / 2)) {
+                p.textContent = '*'.repeat(i);
+            } else {
+                p.textContent = '*'.repeat(9 - i + 1);
+            }
+            container2.append(p);
+        }
+        for (let i = 1; i <= 9; i++) {
+            const p = document.createElement('p');
+            if (i <= Math.ceil(9 / 2)) {
+                p.textContent = '*'.repeat(2 * i - 1);
+            } else {
+                p.textContent = '*'.repeat(2 * (9 - i) + 1);
+            }
+            container3.append(p);
+        }
+
+        function asd() {
+            let sum = 0;
+            let number = 1;
+
+            while (number <= 50) {
+                if (number % 2 == 1) {
+                    sum += number;
+                }
+                number++;
+            }
+
+            console.log("홀수의 총합:", sum);
+        }
+        asd();
+
+    </script>
+</body>
+
+</html>

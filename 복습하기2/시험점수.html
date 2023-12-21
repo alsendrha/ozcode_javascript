@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나의 시험 점수는</title>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script>
+        const container = document.getElementById('container');
+        const prettyPat = prompt('중간고사 점수를 입력해주세요');
+        const p = document.createElement('p');
+        let grade = '';
+        if (prettyPat >= 90) {
+            grade = 'A';
+            p.textContent = `나의 기말고사 점수는 ${prettyPat}점, 학점은 ${grade}!!!`;
+        } else if (prettyPat >= 80) {
+            grade = 'B';
+            p.textContent = `나의 기말고사 점수는 ${prettyPat}점, 학점은 ${grade}!!!`;
+        } else if (prettyPat >= 70) {
+            grade = 'C';
+            p.textContent = `나의 기말고사 점수는 ${prettyPat}점, 학점은 ${grade}!!!`;
+        } else if (prettyPat >= 60) {
+            grade = 'D';
+            p.textContent = `나의 기말고사 점수는 ${prettyPat}점, 학점은 ${grade}!!!`;
+        } else {
+            grade = 'F2';
+            p.textContent = `나의 기말고사 점수는 ${prettyPat}점, 학점은 ${grade}!!!`;
+        }
+        container.append(p);
+        console.log(prettyPat);
+    </script>
+</body>
+
+</html>
