@@ -12,7 +12,7 @@ const more = document.getElementById('more');
 const toTheTop = document.getElementById('tothetop');
 const resetBtn = document.getElementById('reset');
 
-const currentDogs = [];
+let currentDogs = [];
 
 function displayDogs(item) {
     const dogImageDiv = document.createElement('div');
@@ -22,7 +22,6 @@ function displayDogs(item) {
     main.appendChild(dogImageDiv);
 
 }
-
 window.addEventListener('load', function () {
     // 강아지 사진 뿌리기
     request1.open('get', randomDogApi);
@@ -92,15 +91,5 @@ toTheTop.addEventListener('click', function () {
 });
 
 resetBtn.addEventListener('click', function () {
-    currentDogs.length = 0;
-    main.innerHTML = '';
-    request1.open('get', randomDogApi);
-    request1.addEventListener('load', function () {
-        const response = JSON.parse(request1.response);
-        response.message.forEach(function (item) {
-            currentDogs.push(item);
-            displayDogs(item);
-        });
-    });
-    request1.send();
+    location.reload();
 });
