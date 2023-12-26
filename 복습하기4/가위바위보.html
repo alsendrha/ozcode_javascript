@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가위바위보</title>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>가위바위보 게임</h1>
+    <p>가위, 바위, 보 중 하나를 입력하세요:</p>
+    <form id="form">
+      <input type="text" id="user_text">
+      <input type="submit" value="결과 확인">
+      <br>
+      <span>당신의 선택 :</span>
+      <span id="user_value"></span> /
+      <span>컴퓨터의 선택 :</span>
+      <span id="computer_value"></span> /
+      <span>결과 :</span>
+      <span id="total"></span>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById('form');
+    const input = document.getElementById('user_text');
+    const userValue = document.getElementById('user_value');
+    const computerValue = document.getElementById('computer_value');
+    const total = document.getElementById('total');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      userValue.textContent = input.value;
+      let fist = Math.floor(Math.random() * 3);
+
+      if (input.value === '') return;
+
+      const options = ['가위', '바위', '보'];
+      const results = ['비겼습니다.', '이겼습니다.', '졌습니다.'];
+
+      let userIndex = options.indexOf(input.value);
+      let computerIndex = fist;
+
+      computerValue.textContent = options[computerIndex];
+
+      let resultIndex = (userIndex - computerIndex + 3) % 3;
+
+      total.textContent = results[resultIndex];
+    });
+
+  </script>
+</body>
+
+</html>

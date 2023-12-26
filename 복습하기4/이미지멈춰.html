@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지멈춰!</title>
+  <style>
+    #container {
+      width: 300px;
+      height: 300px;
+      background-image: url('images/background01.jpeg');
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <button id="stop">멈춰!</button>
+  <script>
+    const container = document.getElementById('container');
+    container.style.width = '700px';
+    container.style.height = '400px';
+    container.style.backgroundRepeat = 'no-repeat';
+    container.style.backgroundSize = 'contain';
+    const stopButton = document.getElementById('stop');
+
+    let imageList = [
+      'images/background01.jpeg',
+      'images/background02.jpg',
+      'images/background03.jpg'
+    ];
+    let currentIndex = 0;
+    let isPlaying = true;
+
+    function changeImage() {
+      container.style.backgroundImage = `url(${imageList[currentIndex]})`;
+      currentIndex = (currentIndex + 1) % imageList.length;
+    }
+
+    changeImage();
+
+    let imageTimer = setInterval(changeImage, 1000);
+
+    stopButton.addEventListener('click', function () {
+      if (isPlaying) {
+        clearInterval(imageTimer);
+        stopButton.textContent = '시작!';
+      } else {
+        imageTimer = setInterval(changeImage, 1000);
+        stopButton.textContent = '멈춰!';
+      }
+      isPlaying = !isPlaying;
+
+    });
+
+  </script>
+</body>
+
+</html>
