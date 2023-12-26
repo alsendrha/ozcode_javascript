@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="concon"></div>
+  <script>
+    const concon = document.getElementById('concon');
+    const p = document.createElement('p');
+    const p1 = document.createElement('p');
+    p.textContent = 'Hello';
+    p1.textContent = 'World';
+    concon.append(p);
+    concon.appendChild(p1);
+  </script>
+</body>
+
+</html>

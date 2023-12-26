@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계산기</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 756px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .calculator_body {
+            width: 100%;
+            height: 350px;
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid #000;
+            border-radius: 8px;
+            background-color: #51b4e5;
+        }
+
+        .screen {
+            width: 90%;
+            height: 80px;
+            border: 1px solid #fff;
+            border-radius: 8px;
+            margin: 10px auto 10px;
+            text-align: end;
+            background-color: white;
+            padding: 30px 10px 0;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+        button {
+            width: 80px;
+            height: 50px;
+            margin-bottom: 10px;
+            margin-right: 2px;
+            margin-left: 2px;
+            border: 0 solid #fff;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Click MyCalculator</h1>
+        <div class="calculator_body">
+            <p class="screen" id="screen">
+            </p>
+            <div class="buttons">
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+                <button>*</button>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+                <button>/</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>-</button>
+                <button>C</button>
+                <button>0</button>
+                <button>+</button>
+                <button>=</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 화면 요소와 결과를 저장할 변수 정의
+        const screen = document.getElementById('screen');
+        const buttons = document.querySelectorAll('button');
+        let result = '';
+
+
+        // 각 버튼에 대한 클릭 이벤트 추가
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+                const buttonValue = button.textContent;
+
+                // 숫자나 연산자 버튼일 때
+                if (!isNaN(buttonValue) || buttonValue === '.' || buttonValue === '+' || buttonValue === '-' || buttonValue === '*' || buttonValue === '/') {
+                    result += buttonValue;
+                } else if (buttonValue === 'C') {
+                    // 'C' 버튼일 때: 화면 초기화
+                    result = '';
+                } else if (buttonValue === '=') {
+                    // '=' 버튼일 때: 결과 계산
+                    try {
+                        result = eval(result);
+                    } catch (error) {
+                        result = 'error';
+                    }
+                }
+                // 화면에 표시 ㅋㅋㅋ 
+                screen.textContent = result;
+            });
+        });
+    </script>
+</body>
+
+</html>

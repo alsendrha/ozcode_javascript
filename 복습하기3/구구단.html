@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단</title>
+    <style>
+        * {
+            font-size: 14px;
+        }
+
+        .table {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+    </div>
+
+    <table class="table" border="1">
+        <tr id="header">
+        </tr>
+        <tr id="content">
+        </tr>
+    </table>
+
+    </table>
+    <script>
+        const container = document.getElementById('container');
+        const table = document.getElementById('table');
+        const header = document.getElementById('header');
+        const content = document.getElementById('content');
+
+        for (let i = 2; i < 10; i++) {
+            const p = document.createElement('p');
+            p.innerHTML = `${i}단<br> `;
+            for (let j = 1; j < 10; j++) {
+                console.log(i + " * " + j + " = " + i * j)
+                p.innerHTML += `${i} * ${j} = ${i * j}<br>`;
+                container.append(p);
+            }
+        }
+
+
+
+        for (let i = 2; i <= 9; i++) {
+            const headerContent = document.createElement('td');
+            headerContent.textContent = `${i} 단`;
+            header.append(headerContent);
+
+            const contentDate = document.createElement('td');
+            let contentText = '';
+            for (let j = 1; j <= 9; j++) {
+                contentText += `${i} * ${j} = ${i * j}<br>`;
+            }
+            contentDate.innerHTML = contentText;
+            content.append(contentDate);
+        }
+    </script>
+</body>
+
+</html>

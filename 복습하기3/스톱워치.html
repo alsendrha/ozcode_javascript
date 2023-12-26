@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>스톱워치</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			width: 100%;
+			height: 500px;
+			max-width: 600px;
+			margin: 30px auto;
+			text-align: center;
+			background-color: aqua;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container" id="container">
+		<h2>스탑워치</h2>
+		<div>
+			<p id="display"> 0 : 0 : 0</p>
+			<button id="start_btn">시작</button>
+			<button id="end_btn">중지</button>
+			<br>
+		</div>
+	</div>
+
+	<script>
+		const display = document.getElementById('display');
+		const startBtn = document.getElementById('start_btn');
+		const endBtn = document.getElementById('end_btn');
+
+		let starTime = 0;
+		let elapsedTime = 0;
+		let paused = true;
+		let intervalId;
+		let min = 0;
+		let sec = 0;
+		let mills = 0;
+
+		startBtn.addEventListener('click', function () {
+			if (paused) {
+				if (elapsedTime !== 0) {
+					elapsedTime = 0;
+					display.textContent = `0 : 0 : 0`;
+				}
+				paused = false;
+				starTime = Date.now() - elapsedTime;
+				intervalId = setInterval(updateTime, 75);
+			}
+		});
+
+		endBtn.addEventListener('click', function () {
+			if (!paused) {
+				paused = true;
+				elapsedTime = Date.now() - starTime;
+				clearInterval(intervalId);
+			}
+
+		});
+
+		function updateTime() {
+			elapsedTime = Date.now() - starTime;
+
+			mills = Math.floor((elapsedTime / 10) % 100);
+			sec = Math.floor((elapsedTime / 1000) % 60);
+			min = Math.floor((elapsedTime / 1000 / 60) % 60);
+
+			display.textContent = ` ${min} : ${sec} : ${mills}`;
+
+
+		}
+
+
+
+
+
+	</script>
+</body>
+
+</html>
