@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>성적표</title>
+</head>
+
+<body>
+  <h1>떡잎 유치원 멀리뛰기 결과</h1>
+  <table id="table" border="1">
+    <tr>
+      <th>이름</th>
+      <th>성적</th>
+    </tr>
+  </table>
+  <div>
+    <h2>
+      <span>75점이 넘는 사람은</span> : <span id="total"></span>
+    </h2>
+  </div>
+  <script>
+    const table = document.getElementById('table');
+    const total = document.getElementById('total');
+
+    let peoples = {
+      짱구: 45,
+      맹구: 75,
+      철수: 95,
+      훈이: 50,
+      유리: 68,
+      수지: 86
+    }
+    // 테이블에 값 추가
+    for (const person in peoples) {
+      const row = table.insertRow();
+      const name = row.insertCell();
+      name.textContent = person;
+      const score = row.insertCell();
+      score.textContent = peoples[person];
+    }
+
+    const names = Object.keys(peoples).filter(function (name) {
+      return peoples[name] >= 75
+    });
+
+    names.sort(function (a, b) {
+      return peoples[b] - peoples[a]
+    });
+    total.textContent = names.join(', ');
+
+  </script>
+</body>
+
+</html>
