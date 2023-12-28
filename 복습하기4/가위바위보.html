@@ -5,6 +5,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>가위바위보</title>
+  <style>
+    #container {
+      width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #image_container {
+      display: flex;
+      justify-content: space-around;
+    }
+
+    #my_image {
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+    }
+
+    #computer_image {
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+    }
+  </style>
 </head>
 
 <body>
@@ -22,6 +46,12 @@
       <span id="computer_value"></span> /
       <span>결과 :</span>
       <span id="total"></span>
+      <br>
+      <br>
+      <div id="image_container">
+        <div id="my_image"></div>
+        <div id="computer_image"></div>
+      </div>
     </form>
   </div>
 
@@ -31,6 +61,8 @@
     const userValue = document.getElementById('user_value');
     const computerValue = document.getElementById('computer_value');
     const total = document.getElementById('total');
+    const myImage = document.getElementById('my_image');
+    const computerImage = document.getElementById('computer_image');
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -43,7 +75,24 @@
       const results = ['비겼습니다.', '이겼습니다.', '졌습니다.'];
 
       let userIndex = options.indexOf(input.value);
+
+      if (userIndex === 0) {
+        myImage.style.backgroundImage = 'url(images/가위.jpg)'
+      } else if (userIndex === 1) {
+        myImage.style.backgroundImage = 'url(images/바위.jpg)'
+      } else if (userIndex === 2) {
+        myImage.style.backgroundImage = 'url(images/보.jpg)'
+      }
+
       let computerIndex = fist;
+
+      if (computerIndex === 0) {
+        computerImage.style.backgroundImage = 'url(images/가위.jpg)'
+      } else if (computerIndex === 1) {
+        computerImage.style.backgroundImage = 'url(images/바위.jpg)'
+      } else if (computerIndex === 2) {
+        computerImage.style.backgroundImage = 'url(images/보.jpg)'
+      }
 
       computerValue.textContent = options[computerIndex];
 
