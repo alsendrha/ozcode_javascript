@@ -21,7 +21,7 @@
         function toDays() {
             const now = new Date();
             toDay.textContent = `현재 날짜와 시간 : ${now}`;
-            const dDay = new Date(2023, 11, 31);
+            const dDay = new Date(2024, 11, 31);
             let countDay = dDay - now;
             const day = Math.floor(countDay / (1000 * 60 * 60 * 24));
             const hour = Math.floor((countDay / (1000 * 60 * 60)) % 24);
