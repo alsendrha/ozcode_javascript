@@ -5,12 +5,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-
 </head>
 
 <body>
 
+  <form name="frame">
+    <label for="userName">이름</label>
+    <input type="text" id="userName" name="userName">
+    <label for="phone">휴대전화</label>
+    <input type="number" id="phone" name="phone">
+    <label for="pw">비밀번호</label>
+    <input type="password" id="pw" name="pw">
+    <input type="submit" id="submit" value="제출">
+  </form>
+
   <script>
+    const submit = document.getElementById('submit');
+    submit.addEventListener('click', function () {
+      event.preventDefault();
+      console.log(document.frame.phone.value);
+    })
   </script>
 </body>
 

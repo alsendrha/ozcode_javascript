@@ -91,5 +91,15 @@ toTheTop.addEventListener('click', function () {
 });
 
 resetBtn.addEventListener('click', function () {
-    location.reload();
+    main.innerHTML = '';
+    const request3 = new XMLHttpRequest();
+    request3.open('get', randomDogApi);
+    request3.addEventListener('load', function () {
+        const response = JSON.parse(request3.response);
+        currentDogs = response.message.slice();
+        currentDogs.forEach(function (item) {
+            displayDogs(item);
+        });
+    });
+    request3.send();
 });
